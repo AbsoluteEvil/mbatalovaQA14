@@ -16,7 +16,7 @@ public class TelRan {
   }
 
   @Test
-  public void searchwebDriverInChrome() throws Exception {
+  public void enterTelRanSite() throws Exception {
     driver.get("https://www.tel-ran.com/");
   }
 
