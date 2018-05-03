@@ -3,10 +3,7 @@
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/../../sampleTest/out/production/classes" />
     <exclude-output />
-    <content url="file://$MODULE_DIR$/../../sampleTest/src/main">
-      <sourceFolder url="file://$MODULE_DIR$/../../sampleTest/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../sampleTest/src/main/resources" type="java-resource" />
-    </content>
+    <content url="file://$MODULE_DIR$/../../sampleTest/src/main" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: org.seleniumhq.selenium:selenium-server:3.11.0" level="project" />
