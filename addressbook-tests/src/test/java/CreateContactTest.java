@@ -45,6 +45,8 @@ public class CreateContactTest {
   public void tearDown() throws Exception {
     //checkThatElementWasAdded
     driver.findElement(By.linkText("home page")).click();
+    //exit
+      driver.quit();
   }
 /* For future projects
   private boolean isElementPresent(By by) {
