@@ -6,12 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-tesdts_main.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-tesdts_main.iml" group="addressbook-tesdts" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-tesdts_test.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-tesdts_test.iml" group="addressbook-tesdts" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/addressbook-tests.iml" filepath="$PROJECT_DIR$/.idea/modules/addressbook-tests.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/contacts-test.iml" filepath="$PROJECT_DIR$/.idea/modules/contacts-test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/contacts-test_main.iml" filepath="$PROJECT_DIR$/.idea/modules/contacts-test_main.iml" group="contacts-test" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/contacts-test_test.iml" filepath="$PROJECT_DIR$/.idea/modules/contacts-test_test.iml" group="contacts-test" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sampleTest.iml" filepath="$PROJECT_DIR$/.idea/modules/sampleTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sampleTest_main.iml" filepath="$PROJECT_DIR$/.idea/modules/sampleTest_main.iml" group="sampleTest" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sampleTest_test.iml" filepath="$PROJECT_DIR$/.idea/modules/sampleTest_test.iml" group="sampleTest" />
     </modules>
   </component>
 </project>
