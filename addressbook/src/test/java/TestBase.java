@@ -102,4 +102,18 @@ public class TestBase {
     public void deleteGroup() {
         driver.findElement(By.name("delete")).click();
     }
+
+    public void selectContact() {
+        driver.findElement(By.xpath("//*[@type='checkbox']")).click();
+    }
+    public void selectContactByMail(final String email) {
+        driver.findElement(By.xpath("//input[@accept='" + email + "']")).click();
+    }
+    public void selectAllContacts() {
+        driver.findElement(By.xpath("//*[@id='MassCB']")).click();
+    }
+    public void deleteContact() {
+        driver.findElement(By.xpath("//*[@value='Delete']")).click();
+        driver.switchTo().alert().accept();
+    }
 }
