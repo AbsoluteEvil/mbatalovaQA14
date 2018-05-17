@@ -1,5 +1,6 @@
-package com.tl.example;
+package com.tl.example.tests;
 
+import com.tl.example.appManager.ApplicationManager;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
@@ -10,8 +11,7 @@ public class TestBase {
     @BeforeClass(alwaysRun = true)
     public void setUp() throws Exception {
         app.start();
-        app.openSite("http://localhost/addressbook/");
-        app.login("admin", "secret");
+
     }
 
     @AfterClass(alwaysRun = true)

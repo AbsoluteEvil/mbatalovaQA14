@@ -1,4 +1,4 @@
-package com.tl.example.Contact;
+package com.tl.example.model;
 
 public class ContactData {
     private final String name;
