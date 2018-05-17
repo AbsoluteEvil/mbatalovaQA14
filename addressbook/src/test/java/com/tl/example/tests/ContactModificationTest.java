@@ -11,7 +11,7 @@ public class ContactModificationTest extends TestBase {
         app.getContactHelper().initModifyContact();
         app.getContactHelper().fillContactForm(new ContactData("Maria", "Batalova", "8(985)968-89-08", "m4shk4@gmail.com"));
         app.getContactHelper().submitContactModification();
-        app.returnHome();
+        app.getNavigationHelper().returnHome();
         int after = app.getGroupHelper().getGroupCount();
         Assert.assertEquals(after,before);
     }
