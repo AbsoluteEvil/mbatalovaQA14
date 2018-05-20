@@ -3,19 +3,24 @@ package com.tl.example.appManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class NavigationHelper {
+public class NavigationHelper extends HelperBase {
 
-    private WebDriver driver;
 
     public NavigationHelper(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void goToGroupsPage() {
-        driver.findElement(By.linkText("groups")).click();
+        if (isElementPresent(By.tagName("h1")) && driver.findElement(By.tagName("h1")).getText().equals("Groups") && isElementPresent(By.name("new"))) {
+            return;
+        }
+        click(By.linkText("groups"));
     }
 
     public void returnHome() {
-        driver.findElement(By.xpath("//a[@href='./']")).click();
+        if(isElementPresent(By.tagName("table"))){
+            return;
+        }
+        click(By.xpath("//a[@href='./']"));
     }
 }

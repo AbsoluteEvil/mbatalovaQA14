@@ -7,6 +7,10 @@ import org.testng.annotations.Test;
 public class ContactModificationTest extends TestBase {
     @Test
     public void groupModificationTests(){
+        app.getNavigationHelper().returnHome();
+        if(!app.getContactHelper().isThereAContact()){
+            app.getContactHelper().createContact();
+        }
         int before = app.getContactHelper().getContactCount();
         app.getContactHelper().initModifyContact();
         app.getContactHelper().fillContactForm(new ContactData("Maria", "Batalova", "8(985)968-89-08", "m4shk4@gmail.com"));

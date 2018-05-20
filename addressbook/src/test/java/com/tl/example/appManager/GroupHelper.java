@@ -4,36 +4,32 @@ import com.tl.example.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class GroupHelper {
-    private WebDriver driver;
+public class GroupHelper extends HelperBase {
 
     public GroupHelper(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void returnToGroupsPage() {
-        driver.findElement(By.xpath("//a[@href='group.php']")).click();
+        click(By.xpath("//a[@href='group.php']"));
     }
 
     public void fillGroupForm(GroupData group) {
-        driver.findElement(By.name("group_name")).clear();
-        driver.findElement(By.name("group_name")).sendKeys(group.getName());
-        driver.findElement(By.name("group_header")).clear();
-        driver.findElement(By.name("group_header")).sendKeys(group.getHeader());
-        driver.findElement(By.name("group_footer")).clear();
-        driver.findElement(By.name("group_footer")).sendKeys(group.getFooter());
+        type(By.name("group_name"), group.getName());
+        type(By.name("group_header"), group.getHeader());
+        type(By.name("group_footer"), group.getFooter());
     }
 
     public void initGroupCreation() {
-        driver.findElement(By.name("new")).click();
+        click(By.name("new"));
     }
 
     public void selectGroup() {
-        driver.findElement(By.name("selected[]")).click();
+        click(By.name("selected[]"));
     }
 
     public void deleteGroup() {
-        driver.findElement(By.name("delete")).click();
+        click(By.name("delete"));
     }
 
     public int getGroupCount() {
@@ -41,10 +37,22 @@ public class GroupHelper {
     }
 
     public void initModifyGroup() {
-        driver.findElement(By.xpath("//*[value='Edit group']")).click();
+        click(By.xpath("//*[@value='Edit group']"));
     }
 
     public void submitGroupModification() {
-        driver.findElement(By.cssSelector("[name=update]")).click();
+
+        click(By.cssSelector("[name=update]"));
+    }
+
+    public boolean isThereAGroup() {
+        return isElementPresent(By.name("selected[]"));
+    }
+
+    public void createGroup() {
+        initGroupCreation();
+        fillGroupForm(new GroupData("name", "header", "footer"));
+        submitGroupModification();
+        returnToGroupsPage();
     }
 }

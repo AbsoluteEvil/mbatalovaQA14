@@ -1,8 +1,6 @@
 package com.tl.example.appManager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -12,6 +10,7 @@ public class ApplicationManager {
     private ContactHelper contactHelper;
     private GroupHelper groupHelper;
     private NavigationHelper navigationHelper;
+    private HelperBase helperBase;
     private WebDriver driver;
 
     public void start() {
@@ -22,6 +21,7 @@ public class ApplicationManager {
         groupHelper = new GroupHelper(driver);
         navigationHelper = new NavigationHelper(driver);
         contactHelper = new ContactHelper(driver);
+        helperBase = new HelperBase(driver);
     }
 
 
@@ -41,29 +41,6 @@ public class ApplicationManager {
         driver.quit();
     }
 
-    private boolean isElementPresent(By by) {
-        try {
-            driver.findElement(by);
-            return true;
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-    }
-
-    private boolean isAlertPresent() {
-        try {
-            driver.switchTo().alert();
-            return true;
-        } catch (NoAlertPresentException e) {
-            return false;
-        }
-    }
-
-
-    public void acceptAlert() {
-        driver.switchTo().alert().accept();
-    }
-
 
     public GroupHelper getGroupHelper() {
         return groupHelper;
@@ -75,5 +52,8 @@ public class ApplicationManager {
 
     public ContactHelper getContactHelper() {
         return contactHelper;
+    }
+    public HelperBase getHelperBase() {
+        return helperBase;
     }
 }

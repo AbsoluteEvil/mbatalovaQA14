@@ -4,39 +4,33 @@ import com.tl.example.model.ContactData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ContactHelper {
-    private WebDriver driver;
+public class ContactHelper extends HelperBase {
 
     public ContactHelper(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
     }
 
     public void fillContactForm(ContactData contactData) {
-        driver.findElement(By.name("firstname")).clear();
-        driver.findElement(By.name("firstname")).sendKeys(contactData.getName());
-        driver.findElement(By.name("lastname")).clear();
-        driver.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
-        driver.findElement(By.name("mobile")).clear();
-        driver.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
-        driver.findElement(By.name("email")).clear();
-        driver.findElement(By.name("email")).sendKeys(contactData.getEmail());
+        type(By.name("firstname"), contactData.getName());
+        type(By.name("lastname"), contactData.getLastname());
+        type(By.name("mobile"), contactData.getMobile());
+        type(By.name("email"), contactData.getEmail());
     }
 
     public void initContactCreation() {
-        driver.findElement(By.xpath("//*[@href='edit.php']")).click();
+        click(By.xpath("//*[@href='edit.php']"));
     }
 
     public void selectContact() {
-        driver.findElement(By.xpath("//*[@type='checkbox']")).click();
+        click(By.xpath("//*[@type='checkbox']"));
     }
 
     public void selectAllContacts() {
-        driver.findElement(By.xpath("//*[@onclick='MassSelection()']")).click();
+        click(By.xpath("//*[@onclick='MassSelection()']"));
     }
 
     public void initContactDeletion() {
-        driver.findElement(By.xpath("//*[@value='Delete']")).click();
-
+        click(By.xpath("//*[@value='Delete']"));
     }
 
     public int getContactCount() {
@@ -44,14 +38,24 @@ public class ContactHelper {
     }
 
     public void initModifyContact() {
-        driver.findElement(By.xpath("//*[@title='Edit']")).click();
+        click(By.xpath("//*[@title='Edit']"));
     }
 
     public void submitContactModification() {
-        driver.findElement(By.cssSelector("[name=update]")).click();
+        click(By.cssSelector("[name=update]"));
     }
 
     public void submit() {
-        driver.findElement(By.name("submit")).click();
+        click(By.name("submit"));
+    }
+
+    public boolean isThereAContact() {
+        return isElementPresent(By.name("selected[]"));
+    }
+
+    public void createContact() {
+        initContactCreation();
+        fillContactForm(new ContactData("name","lastname","89999999999","mail@mail.ru"));
+        submit();
     }
 }
