@@ -15,14 +15,18 @@ public class ApplicationManager {
     private NavigationHelper navigationHelper;
     private HelperBase helperBase;
     private WebDriver driver;
+    private String browser;
+
+    public ApplicationManager(String browser) {
+        this.browser = browser;
+    }
 
     public void start() {
-        String browser = BrowserType.CHROME;
         if (browser.equals(BrowserType.CHROME)) {
             driver = new ChromeDriver();
         } else if (browser.equals(BrowserType.FIREFOX)) {
             driver = new FirefoxDriver();
-        } else if(browser.equals(BrowserType.IE)){
+        } else if (browser.equals(BrowserType.IE)){
             driver = new InternetExplorerDriver();
         }
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
