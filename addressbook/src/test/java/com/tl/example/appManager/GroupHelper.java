@@ -51,7 +51,10 @@ public class GroupHelper extends HelperBase {
 
     public void createGroup() {
         initGroupCreation();
-        fillGroupForm(new GroupData("name", "header", "footer"));
+        fillGroupForm(new GroupData()
+                .withName("Name")
+                .withHeader("Header")
+                .withFooter("Footer"));
         submitGroupModification();
         returnToGroupsPage();
     }

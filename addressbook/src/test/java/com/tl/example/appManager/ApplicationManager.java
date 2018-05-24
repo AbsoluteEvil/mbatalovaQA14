@@ -3,6 +3,9 @@ package com.tl.example.appManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
@@ -14,8 +17,15 @@ public class ApplicationManager {
     private WebDriver driver;
 
     public void start() {
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        String browser = BrowserType.CHROME;
+        if (browser.equals(BrowserType.CHROME)) {
+            driver = new ChromeDriver();
+        } else if (browser.equals(BrowserType.FIREFOX)) {
+            driver = new FirefoxDriver();
+        } else if(browser.equals(BrowserType.IE)){
+            driver = new InternetExplorerDriver();
+        }
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         openSite("http://localhost/addressbook/");
         login("admin", "secret");
         groupHelper = new GroupHelper(driver);
@@ -53,6 +63,7 @@ public class ApplicationManager {
     public ContactHelper getContactHelper() {
         return contactHelper;
     }
+
     public HelperBase getHelperBase() {
         return helperBase;
     }

@@ -18,19 +18,19 @@ public class ContactHelper extends HelperBase {
     }
 
     public void initContactCreation() {
-        click(By.xpath("//*[@href='edit.php']"));
+        submit(By.xpath("//*[@href='edit.php']"));
     }
 
     public void selectContact() {
-        click(By.xpath("//*[@type='checkbox']"));
+        submit(By.xpath("//*[@type='checkbox']"));
     }
 
     public void selectAllContacts() {
-        click(By.xpath("//*[@onclick='MassSelection()']"));
+        submit(By.xpath("//*[@onclick='MassSelection()']"));
     }
 
     public void initContactDeletion() {
-        click(By.xpath("//*[@value='Delete']"));
+        submit(By.xpath("//*[@value='Delete']"));
     }
 
     public int getContactCount() {
@@ -38,15 +38,15 @@ public class ContactHelper extends HelperBase {
     }
 
     public void initModifyContact() {
-        click(By.xpath("//*[@title='Edit']"));
+        submit(By.xpath("//*[@title='Edit']"));
     }
 
     public void submitContactModification() {
-        click(By.cssSelector("[name=update]"));
+        submit(By.cssSelector("[name=update]"));
     }
 
-    public void submit() {
-        click(By.name("submit"));
+    public void submit(By locator) {
+        click(locator);
     }
 
     public boolean isThereAContact() {
@@ -55,7 +55,11 @@ public class ContactHelper extends HelperBase {
 
     public void createContact() {
         initContactCreation();
-        fillContactForm(new ContactData("name","lastname","89999999999","mail@mail.ru"));
-        submit();
+        fillContactForm(new ContactData()
+                .setName("name")
+                .setLastname("lastname")
+                .setMobile("89999999999")
+                .setEmail("mail@mail.ru"));
+        submit(By.name("submit"));
     }
 }

@@ -1,16 +1,29 @@
 package com.tl.example.model;
 
 public class ContactData {
-    private final String name;
-    private final String lastname;
-    private final String mobile;
-    private final String email;
+    private String name;
+    private String lastname;
+    private String mobile;
+    private String email;
 
-    public ContactData(String name, String lastname, String mobile, String email) {
+    public ContactData setName(String name) {
         this.name = name;
+        return this;
+    }
+
+    public ContactData setLastname(String lastname) {
         this.lastname = lastname;
+        return this;
+    }
+
+    public ContactData setMobile(String mobile) {
         this.mobile = mobile;
+        return this;
+    }
+
+    public ContactData setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public String getName() {
