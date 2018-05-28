@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.tl.example.tests.GroupCreationTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2018-05-25T08:30:10" hostname="Citadel" time="5.196">
+  <properties/>
+  <testcase name="testCreateGroupLongName" classname="com.tl.example.tests.GroupCreationTest" time="1.389"/>
+  <testcase name="testCreateGroupShortName" classname="com.tl.example.tests.GroupCreationTest" time="1.142"/>
+  <testcase name="testCreateGroupEmpty" classname="com.tl.example.tests.GroupCreationTest" time="0.676"/>
+  <system-out><![CDATA[testCreateGroupShortName passed
+testCreateGroupEmpty passed
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
