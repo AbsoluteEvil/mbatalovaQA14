@@ -5,6 +5,8 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
+import java.io.File;
+
 public class HelperBase {
 
 
@@ -12,6 +14,10 @@ public class HelperBase {
 
     public HelperBase(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public void attach(By locator, File file) {
+        driver.findElement(locator).sendKeys(file.getAbsolutePath());
     }
 
     public void type(By locator, String text) {
@@ -29,6 +35,7 @@ public class HelperBase {
     public void acceptAlert() {
         driver.switchTo().alert().accept();
     }
+
     public boolean isElementPresent(By by) {
         try {
             driver.findElement(by);

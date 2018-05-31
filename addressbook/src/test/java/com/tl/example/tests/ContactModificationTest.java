@@ -14,10 +14,10 @@ public class ContactModificationTest extends TestBase {
         int before = app.getContactHelper().getContactCount();
         app.getContactHelper().initModifyContact();
         app.getContactHelper().fillContactForm(new ContactData()
-                .setName("Maria")
-                .setLastname("Batalova")
-                .setMobile("8(985)968-89-08")
-                .setEmail("m4shk4@gmail.com")
+                .withName("Maria")
+                .withLastname("Batalova")
+                .withMobile("8(985)968-89-08")
+                .withEmail("m4shk4@gmail.com")
         );
         app.getContactHelper().submitContactModification();
         app.getNavigationHelper().returnHome();

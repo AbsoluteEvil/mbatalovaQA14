@@ -3,6 +3,9 @@ package com.tl.example.appManager;
 import com.tl.example.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import java.util.List;
 
 public class GroupHelper extends HelperBase {
 
@@ -41,7 +44,6 @@ public class GroupHelper extends HelperBase {
     }
 
     public void submitGroupModification() {
-
         click(By.cssSelector("[name=update]"));
     }
 
@@ -57,5 +59,19 @@ public class GroupHelper extends HelperBase {
                 .withFooter("Footer"));
         submitGroupModification();
         returnToGroupsPage();
+    }
+
+    public void selectAllGroups() {
+        List<WebElement> els = driver.findElements(By.xpath("//input[@type='checkbox']"));
+        for ( WebElement el : els ) {
+            if ( !el.isSelected() ) {
+                el.click();
+            }
+        }
+    }
+
+
+    public boolean isGroupExist(final String groupName) {
+        return isElementPresent(By.xpath("//select[@name='to_group']/option[text() = '" + groupName + "']"));
     }
 }
