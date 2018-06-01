@@ -33,7 +33,7 @@ public class HelperBase {
     }
 
     public void submit() {
-        click(By.cssSelector("[name=update]"));
+        click(By.name("submit"));
     }
 
     public void submitModification() {

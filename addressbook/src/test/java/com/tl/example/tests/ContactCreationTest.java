@@ -16,7 +16,7 @@ public class ContactCreationTest extends TestBase {
         File photo = new File("src/test/resources/cat.jpg");
         System.out.println(photo.exists());
         //HOMEWORK
-        String groupName= new String("newGroup");
+        String groupName= new String("3333");
         if(!app.getGroupHelper().isGroupExist(groupName)){
             app.getGroupHelper().createGroupWithThisName(groupName);
         }
