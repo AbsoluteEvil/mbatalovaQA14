@@ -32,6 +32,14 @@ public class HelperBase {
         driver.findElement(locator).click();
     }
 
+    public void submit() {
+        click(By.cssSelector("[name=update]"));
+    }
+
+    public void submitModification() {
+        click(By.cssSelector("[name=update]"));
+    }
+
     public void acceptAlert() {
         driver.switchTo().alert().accept();
     }
@@ -52,5 +60,9 @@ public class HelperBase {
         } catch (NoAlertPresentException e) {
             return false;
         }
+    }
+
+    public void initDeletion() {
+        click(By.xpath("//*[@value='Delete']"));
     }
 }

@@ -43,9 +43,6 @@ public class GroupHelper extends HelperBase {
         click(By.xpath("//*[@value='Edit group']"));
     }
 
-    public void submitGroupModification() {
-        click(By.cssSelector("[name=update]"));
-    }
 
     public boolean isThereAGroup() {
         return isElementPresent(By.name("selected[]"));
@@ -57,7 +54,7 @@ public class GroupHelper extends HelperBase {
                 .withName("Name")
                 .withHeader("Header")
                 .withFooter("Footer"));
-        submitGroupModification();
+        submitModification();
         returnToGroupsPage();
     }
 
@@ -69,7 +66,6 @@ public class GroupHelper extends HelperBase {
             }
         }
     }
-
 
     public boolean isGroupExist(final String groupName) {
         return isElementPresent(By.xpath("//select[@name='to_group']/option[text() = '" + groupName + "']"));

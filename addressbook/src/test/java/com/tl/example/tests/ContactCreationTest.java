@@ -22,7 +22,7 @@ public class ContactCreationTest extends TestBase {
             app.getNavigationHelper().goToGroupsPage();
             app.getGroupHelper().initGroupCreation();
             app.getGroupHelper().fillGroupForm(new GroupData().withName(groupName));
-            app.getContactHelper().submit(By.name("submit"));
+            app.getHelperBase().submit();
             app.getNavigationHelper().returnHome();
         }
         app.getContactHelper().initContactCreation();
@@ -33,7 +33,7 @@ public class ContactCreationTest extends TestBase {
                 .withEmail("myemail@gmail.com")
                 .withPhoto(photo)
                 .withGroup(groupName));
-        app.getContactHelper().submit(By.name("submit"));
+        app.getHelperBase().submit();
         int after = app.getContactHelper().getContactCount();
         Assert.assertEquals(after, before + 1);
     }
@@ -44,7 +44,7 @@ public class ContactCreationTest extends TestBase {
         int before = app.getContactHelper().getContactCount();
         app.getContactHelper().initContactCreation();
         app.getContactHelper().fillContactForm(new ContactData());
-        app.getContactHelper().submit(By.name("submit"));
+        app.getHelperBase().submit();
         int after = app.getContactHelper().getContactCount();
         Assert.assertEquals(after, before + 1);
     }

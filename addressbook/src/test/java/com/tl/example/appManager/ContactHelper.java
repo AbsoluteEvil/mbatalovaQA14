@@ -24,35 +24,19 @@ public class ContactHelper extends HelperBase {
     }
 
     public void initContactCreation() {
-        submit(By.xpath("//*[@href='edit.php']"));
+        click(By.xpath("//*[@href='edit.php']"));
     }
 
     public void selectContact() {
-        submit(By.xpath("//*[@type='checkbox']"));
+        click(By.xpath("//*[@type='checkbox']"));
     }
 
     public void selectAllContacts() {
-        submit(By.xpath("//*[@onclick='MassSelection()']"));
-    }
-
-    public void initContactDeletion() {
-        submit(By.xpath("//*[@value='Delete']"));
+        click(By.xpath("//*[@onclick='MassSelection()']"));
     }
 
     public int getContactCount() {
         return driver.findElements(By.name("selected[]")).size();
-    }
-
-    public void initModifyContact() {
-        submit(By.xpath("//*[@title='Edit']"));
-    }
-
-    public void submitContactModification() {
-        submit(By.cssSelector("[name=update]"));
-    }
-
-    public void submit(By locator) {
-        click(locator);
     }
 
     public boolean isThereAContact() {
@@ -66,6 +50,6 @@ public class ContactHelper extends HelperBase {
                 .withLastname("lastname")
                 .withMobile("89999999999")
                 .withEmail("mail@mail.ru"));
-        submit(By.name("submit"));
+        submit();
     }
 }
