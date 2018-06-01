@@ -1,6 +1,7 @@
 package com.tl.example.appManager;
 
 import com.tl.example.model.GroupData;
+import com.tl.example.tests.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,6 +12,14 @@ public class GroupHelper extends HelperBase {
 
     public GroupHelper(WebDriver driver) {
         super(driver);
+    }
+
+    public void createGroupWithThisName(String groupName) {
+        TestBase.app.getNavigationHelper().goToGroupsPage();
+        TestBase.app.getGroupHelper().initGroupCreation();
+        TestBase.app.getGroupHelper().fillGroupForm(new GroupData().withName(groupName));
+        TestBase.app.getGroupHelper().submit();
+        TestBase.app.getNavigationHelper().returnHome();
     }
 
     public void returnToGroupsPage() {

@@ -1,8 +1,7 @@
 package com.tl.example.tests;
 
+import com.tl.example.appManager.GroupHelper;
 import com.tl.example.model.ContactData;
-import com.tl.example.model.GroupData;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -19,11 +18,7 @@ public class ContactCreationTest extends TestBase {
         //HOMEWORK
         String groupName= new String("newGroup");
         if(!app.getGroupHelper().isGroupExist(groupName)){
-            app.getNavigationHelper().goToGroupsPage();
-            app.getGroupHelper().initGroupCreation();
-            app.getGroupHelper().fillGroupForm(new GroupData().withName(groupName));
-            app.getGroupHelper().submit();
-            app.getNavigationHelper().returnHome();
+            app.getGroupHelper().createGroupWithThisName(groupName);
         }
         app.getContactHelper().initContactCreation();
         app.getContactHelper().fillContactForm(new ContactData()
