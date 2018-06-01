@@ -12,14 +12,14 @@ public class ContactModificationTest extends TestBase {
             app.getContactHelper().createContact();
         }
         int before = app.getContactHelper().getContactCount();
-        app.getHelperBase().submitModification();
+        app.getContactHelper().submitModification();
         app.getContactHelper().fillContactForm(new ContactData()
                 .withName("Maria")
                 .withLastname("Batalova")
                 .withMobile("8(985)968-89-08")
                 .withEmail("m4shk4@gmail.com")
         );
-        app.getHelperBase().submitModification();
+        app.getContactHelper().submitModification();
         app.getNavigationHelper().returnHome();
         int after = app.getGroupHelper().getGroupCount();
         Assert.assertEquals(after, before);

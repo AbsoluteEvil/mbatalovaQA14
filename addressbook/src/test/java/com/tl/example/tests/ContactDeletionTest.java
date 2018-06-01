@@ -14,7 +14,7 @@ public class ContactDeletionTest extends TestBase {
         int before = app.getContactHelper().getContactCount();
         app.getContactHelper().selectContact();
         app.getGroupHelper().initDeletion();
-        app.getHelperBase().acceptAlert();
+        app.getGroupHelper().acceptAlert();
         app.getNavigationHelper().returnHome();
         int after = app.getContactHelper().getContactCount();
         Assert.assertEquals(after, before-1);
@@ -28,7 +28,7 @@ public class ContactDeletionTest extends TestBase {
         }
         app.getContactHelper().selectAllContacts();
         app.getGroupHelper().initDeletion();
-        app.getHelperBase().acceptAlert();
+        app.getGroupHelper().acceptAlert();
         Assert.assertEquals(app.getContactHelper().getContactCount(), 0);
     }
 }

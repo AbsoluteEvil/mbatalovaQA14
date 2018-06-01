@@ -16,7 +16,7 @@ public class GroupCreationTest extends TestBase {
                 .withName("Name")
                 .withHeader("Header")
                 .withFooter("Footer"));
-        app.getHelperBase().submit();
+        app.getGroupHelper().submit();
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
         Assert.assertEquals(after,before+1);
@@ -30,7 +30,7 @@ public class GroupCreationTest extends TestBase {
                 .withName("n")
                 .withHeader("h")
                 .withFooter("f"));
-        app.getHelperBase().submit();
+        app.getGroupHelper().submit();
         app.getGroupHelper().returnToGroupsPage();
         System.out.println("testCreateGroupShortName passed");
     }
@@ -40,7 +40,7 @@ public class GroupCreationTest extends TestBase {
         app.getNavigationHelper().goToGroupsPage();
         app.getGroupHelper().initGroupCreation();
         app.getGroupHelper().fillGroupForm(new GroupData());
-        app.getHelperBase().submit();
+        app.getGroupHelper().submit();
         app.getGroupHelper().returnToGroupsPage();
         System.out.println("testCreateGroupEmpty passed");
     }

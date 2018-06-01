@@ -13,7 +13,6 @@ public class ApplicationManager {
     private ContactHelper contactHelper;
     private GroupHelper groupHelper;
     private NavigationHelper navigationHelper;
-    private HelperBase helperBase;
     private WebDriver driver;
     private String browser;
 
@@ -35,7 +34,6 @@ public class ApplicationManager {
         groupHelper = new GroupHelper(driver);
         navigationHelper = new NavigationHelper(driver);
         contactHelper = new ContactHelper(driver);
-        helperBase = new HelperBase(driver);
     }
 
 
@@ -68,7 +66,4 @@ public class ApplicationManager {
         return contactHelper;
     }
 
-    public HelperBase getHelperBase() {
-        return helperBase;
-    }
 }

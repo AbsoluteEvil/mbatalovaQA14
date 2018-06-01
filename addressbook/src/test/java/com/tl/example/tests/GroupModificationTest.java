@@ -18,7 +18,7 @@ public class GroupModificationTest extends TestBase {
                 .withName("newName")
                 .withFooter("newHeader")
                 .withFooter("newFooter"));
-        app.getHelperBase().submitModification();
+        app.getGroupHelper().submitModification();
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
         Assert.assertEquals(after,before);
