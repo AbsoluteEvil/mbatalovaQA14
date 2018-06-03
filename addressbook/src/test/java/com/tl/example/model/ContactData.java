@@ -38,6 +38,13 @@ public class ContactData {
         return this;
     }
 
+    @Override
+    public String toString() {
+        return "ContactData{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+
     public String getName() {
         return name;
     }

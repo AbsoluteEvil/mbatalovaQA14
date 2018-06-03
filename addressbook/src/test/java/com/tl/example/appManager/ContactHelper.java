@@ -14,13 +14,13 @@ public class ContactHelper extends HelperBase {
 
     public void fillContactForm(ContactData contactData) {
         if (isElementPresent(By.name("new_group"))&&
-                isElementPresent(By.xpath("//select[@name='new_group']/option[text() = '" +contactData.getGroup()+ "']"))) {
+                isElementPresent(By.xpath("//select[@name='new_group']/option[text()='"+contactData.getGroup()+"']"))) {
             new Select(driver.findElement(By.name("new_group")))
                     .selectByVisibleText(contactData.getGroup());
-        } if (isElementPresent(By.name("new_group"))){
+        } else if (isElementPresent(By.name("new_group"))){
              TestBase.app.getGroupHelper().createGroupWithThisName(contactData.getGroup());
             TestBase.app.getNavigationHelper().returnHome();
-            TestBase.app.getContactHelper().initContactCreation();
+            initContactCreation();
             new Select(driver.findElement(By.name("new_group")))
                     .selectByVisibleText(contactData.getGroup());
         }
@@ -28,7 +28,7 @@ public class ContactHelper extends HelperBase {
         type(By.name("lastname"), contactData.getLastname());
         type(By.name("mobile"), contactData.getMobile());
         type(By.name("email"), contactData.getEmail());
-        attach(By.name("photo"), contactData.getPhoto());
+//        attach(By.name("photo"), contactData.getPhoto());
 
     }
 

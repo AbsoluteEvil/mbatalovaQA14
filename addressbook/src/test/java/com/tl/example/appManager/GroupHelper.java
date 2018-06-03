@@ -16,9 +16,9 @@ public class GroupHelper extends HelperBase {
 
     public void createGroupWithThisName(String groupName) {
         TestBase.app.getNavigationHelper().goToGroupsPage();
-        TestBase.app.getGroupHelper().initGroupCreation();
-        TestBase.app.getGroupHelper().fillGroupForm(new GroupData().withName(groupName));
-        TestBase.app.getGroupHelper().submit();
+        initGroupCreation();
+        fillGroupForm(new GroupData().withName(groupName));
+        submit();
         TestBase.app.getNavigationHelper().returnHome();
     }
 
