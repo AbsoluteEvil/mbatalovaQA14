@@ -15,11 +15,6 @@ public class ContactCreationTest extends TestBase {
         int before = app.getContactHelper().getContactCount();
         File photo = new File("src/test/resources/cat.jpg");
         System.out.println(photo.exists());
-        //HOMEWORK
-        String groupName= new String("3333");
-        if(!app.getGroupHelper().isGroupExist(groupName)){
-            app.getGroupHelper().createGroupWithThisName(groupName);
-        }
         app.getContactHelper().initContactCreation();
         app.getContactHelper().fillContactForm(new ContactData()
                 .withName("AnyLongName")
@@ -27,7 +22,7 @@ public class ContactCreationTest extends TestBase {
                 .withMobile("8(985)999-99-99")
                 .withEmail("myemail@gmail.com")
                 .withPhoto(photo)
-                .withGroup(groupName));
+                .withGroup("2doesNotExist2"));
         app.getContactHelper().submit();
         int after = app.getContactHelper().getContactCount();
         Assert.assertEquals(after, before + 1);

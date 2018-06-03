@@ -1,6 +1,7 @@
 package com.tl.example.appManager;
 
 import com.tl.example.model.ContactData;
+import com.tl.example.tests.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
@@ -12,15 +13,23 @@ public class ContactHelper extends HelperBase {
     }
 
     public void fillContactForm(ContactData contactData) {
+        if (isElementPresent(By.name("new_group"))&&
+                isElementPresent(By.xpath("//select[@name='new_group']/option[text() = '" +contactData.getGroup()+ "']"))) {
+            new Select(driver.findElement(By.name("new_group")))
+                    .selectByVisibleText(contactData.getGroup());
+        } if (isElementPresent(By.name("new_group"))){
+             TestBase.app.getGroupHelper().createGroupWithThisName(contactData.getGroup());
+            TestBase.app.getNavigationHelper().returnHome();
+            TestBase.app.getContactHelper().initContactCreation();
+            new Select(driver.findElement(By.name("new_group")))
+                    .selectByVisibleText(contactData.getGroup());
+        }
         type(By.name("firstname"), contactData.getName());
         type(By.name("lastname"), contactData.getLastname());
         type(By.name("mobile"), contactData.getMobile());
         type(By.name("email"), contactData.getEmail());
         attach(By.name("photo"), contactData.getPhoto());
-        if (isElementPresent(By.name("new_group"))) {
-            new Select(driver.findElement(By.name("new_group")))
-                    .selectByVisibleText(contactData.getGroup());
-        }
+
     }
 
     public void initContactCreation() {
@@ -52,4 +61,6 @@ public class ContactHelper extends HelperBase {
                 .withEmail("mail@mail.ru"));
         submit();
     }
+
+
 }

@@ -76,7 +76,4 @@ public class GroupHelper extends HelperBase {
         }
     }
 
-    public boolean isGroupExist(final String groupName) {
-        return isElementPresent(By.xpath("//select[@name='to_group']/option[text() = '" + groupName + "']"));
-    }
 }
