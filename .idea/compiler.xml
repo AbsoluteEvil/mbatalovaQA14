@@ -10,6 +10,8 @@
       <module name="contacts-test_test" target="1.8" />
       <module name="mbatalovaQA14-addressbook_main" target="1.8" />
       <module name="mbatalovaQA14-addressbook_test" target="1.8" />
+      <module name="mishpahugproject_main" target="1.8" />
+      <module name="mishpahugproject_test" target="1.8" />
       <module name="sampleTest_main" target="1.8" />
       <module name="sampleTest_test" target="1.8" />
     </bytecodeTargetLevel>

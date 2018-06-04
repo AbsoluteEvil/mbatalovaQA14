@@ -1,13 +1,13 @@
-package com.tl.example.tests;
+package tests;
 
-import com.tl.example.appManager.ApplicationManager;
+import appManager.ApplicationManager;
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
 
-    public static ApplicationManager app = new ApplicationManager(System.getProperty("browser",BrowserType.CHROME));
+    public static ApplicationManager app = new ApplicationManager(BrowserType.CHROME);
 
     @BeforeSuite(alwaysRun = true)
     public void setUp() throws Exception {
