@@ -3,9 +3,9 @@
 <suite name="Suite1" verbose="1" >
     <test name="testGroups">
         <classes>
-            <class name="com.tl.example.tests.GroupCreationTest"/>
-            <class name="com.tl.example.tests.GroupModificationTest"/>
-            <class name="com.tl.example.tests.GroupDeletionTest"/>
+            <class name="tests.GroupCreationTest"/>
+            <class name="tests.GroupModificationTest"/>
+            <class name="tests.GroupDeletionTest"/>
         </classes>
     </test>
 </suite>
