@@ -9,9 +9,6 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mbatalovaQA14-addressbook_main.iml" filepath="$PROJECT_DIR$/.idea/modules/mbatalovaQA14-addressbook_main.iml" group="addressbook" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mbatalovaQA14-addressbook_test.iml" filepath="$PROJECT_DIR$/.idea/modules/mbatalovaQA14-addressbook_test.iml" group="addressbook" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/mishpahug.iml" filepath="$PROJECT_DIR$/.idea/modules/mishpahug.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mishpahugproject.iml" filepath="$PROJECT_DIR$/.idea/modules/mishpahugproject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mishpahugproject_main.iml" filepath="$PROJECT_DIR$/.idea/modules/mishpahugproject_main.iml" group="mishpahugproject" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/mishpahugproject_test.iml" filepath="$PROJECT_DIR$/.idea/modules/mishpahugproject_test.iml" group="mishpahugproject" />
     </modules>
   </component>
 </project>

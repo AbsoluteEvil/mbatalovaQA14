@@ -1,7 +1,6 @@
 package com.tl.example.tests;
 
 import com.tl.example.model.GroupData;
-import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
