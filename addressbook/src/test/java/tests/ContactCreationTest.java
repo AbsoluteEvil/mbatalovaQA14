@@ -1,7 +1,7 @@
-package com.tl.example.tests;
+package tests;
 
 
-import com.tl.example.model.ContactData;
+import model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;

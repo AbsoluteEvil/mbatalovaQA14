@@ -1,7 +1,7 @@
-package com.tl.example.appManager;
+package appManager;
 
-import com.tl.example.model.GroupData;
-import com.tl.example.tests.TestBase;
+import model.GroupData;
+import tests.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

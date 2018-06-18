@@ -1,6 +1,6 @@
-package com.tl.example.tests;
+package tests;
 
-import com.tl.example.appManager.ApplicationManager;
+import appManager.ApplicationManager;
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;

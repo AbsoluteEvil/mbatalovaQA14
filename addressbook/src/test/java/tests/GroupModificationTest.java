@@ -1,6 +1,6 @@
-package com.tl.example.tests;
+package tests;
 
-import com.tl.example.model.GroupData;
+import model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

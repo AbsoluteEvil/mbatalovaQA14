@@ -1,4 +1,4 @@
-package com.tl.example.appManager;
+package appManager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;

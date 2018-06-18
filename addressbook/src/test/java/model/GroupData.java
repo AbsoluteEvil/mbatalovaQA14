@@ -1,4 +1,4 @@
-package com.tl.example.model;
+package model;
 
 public class GroupData {
     private String name;

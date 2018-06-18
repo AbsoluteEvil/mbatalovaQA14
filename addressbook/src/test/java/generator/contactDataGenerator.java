@@ -1,7 +1,6 @@
-package com.tl.example.generator;
+package generator;
 
-import com.tl.example.model.ContactData;
-import com.tl.example.model.GroupData;
+import model.ContactData;
 
 import java.io.File;
 import java.io.FileWriter;
