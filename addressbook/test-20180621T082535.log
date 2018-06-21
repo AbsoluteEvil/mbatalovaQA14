@@ -1,0 +1,10 @@
+9804 [main] INFO  tests.GroupCreationTest - Start testCreateGroup
+12863 [main] INFO  tests.GroupCreationTest - Stop testCreateGroup
+12867 [main] INFO  tests.GroupCreationTest - Start testCreateGroup
+16060 [main] INFO  tests.GroupCreationTest - Stop testCreateGroup
+16062 [main] INFO  tests.GroupCreationTest - Start testCreateGroup
+18832 [main] INFO  tests.GroupCreationTest - Stop testCreateGroup
+18833 [main] INFO  tests.GroupCreationTest - Start testCreateGroup
+21521 [main] INFO  tests.GroupCreationTest - Stop testCreateGroup
+21523 [main] INFO  tests.GroupCreationTest - Start testCreateGroup
+24063 [main] INFO  tests.GroupCreationTest - Stop testCreateGroup

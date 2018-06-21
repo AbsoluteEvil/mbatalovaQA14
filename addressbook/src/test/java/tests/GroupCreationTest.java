@@ -1,6 +1,8 @@
 package tests;
 
 import model.GroupData;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -11,14 +13,17 @@ import java.util.Iterator;
 import java.util.List;
 
 public class GroupCreationTest extends TestBase {
+
+
+
     @DataProvider
     public Iterator<Object[]> validGroups() throws IOException {
         List<Object[]> list = new ArrayList<>();
         BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.csv")));
         String line = reader.readLine();
-        while (line!=null){
-            String[]split = line.split(";");
-            list.add(new Object[]{ new GroupData()
+        while (line != null) {
+            String[] split = line.split(";");
+            list.add(new Object[]{new GroupData()
                     .withName(split[0])
                     .withHeader(split[1])
                     .withFooter(split[2])});
@@ -28,7 +33,7 @@ public class GroupCreationTest extends TestBase {
     }
 
     @Test(dataProvider = "validGroups")
-    public void testCreateGroupLongName(GroupData group){
+    public void testCreateGroup(GroupData group) {
         app.getNavigationHelper().goToGroupsPage();
         int before = app.getGroupHelper().getGroupCount();
         app.getGroupHelper().initGroupCreation();
@@ -39,11 +44,11 @@ public class GroupCreationTest extends TestBase {
         app.getGroupHelper().submit();
         app.getGroupHelper().returnToGroupsPage();
         int after = app.getGroupHelper().getGroupCount();
-        Assert.assertEquals(after,before+1);
-
+        Assert.assertEquals(after, before + 1);
     }
+
     @Test
-    public void testCreateGroupShortName(){
+    public void testCreateGroupShortName() {
         app.getNavigationHelper().goToGroupsPage();
         app.getGroupHelper().initGroupCreation();
         app.getGroupHelper().fillGroupForm(new GroupData()
@@ -55,8 +60,8 @@ public class GroupCreationTest extends TestBase {
         System.out.println("testCreateGroupShortName passed");
     }
 
-    @Test (priority = 3,enabled = true)
-    public void testCreateGroupEmpty(){
+    @Test(priority = 3, enabled = true)
+    public void testCreateGroupEmpty() {
         app.getNavigationHelper().goToGroupsPage();
         app.getGroupHelper().initGroupCreation();
         app.getGroupHelper().fillGroupForm(new GroupData());

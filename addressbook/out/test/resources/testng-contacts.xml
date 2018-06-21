@@ -3,9 +3,9 @@
 <suite name="Suite1" verbose="1" >
     <test name="testContacts">
         <classes>
-            <class name="com.tl.example.tests.ContactCreationTest" />
-            <class name="com.tl.example.tests.ContactModificationTest" />
-            <class name="com.tl.example.tests.ContactDeletionTest" />
+            <class name="tests.ContactCreationTest" />
+            <class name="tests.ContactModificationTest" />
+            <class name="tests.ContactDeletionTest" />
         </classes>
     </test>
 </suite>
