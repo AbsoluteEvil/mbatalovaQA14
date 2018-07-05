@@ -4,6 +4,9 @@ import model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.HashSet;
+import java.util.List;
+
 public class ContactModificationTest extends TestBase {
     @Test
     public void groupModificationTests() {
@@ -11,17 +14,20 @@ public class ContactModificationTest extends TestBase {
         if (!app.getContactHelper().isThereAContact()) {
             app.getContactHelper().createContact();
         }
-        int before = app.getContactHelper().getContactCount();
-        app.getContactHelper().submitModification();
-        app.getContactHelper().fillContactForm(new ContactData()
-                .withName("Maria")
-                .withLastname("Batalova")
-                .withMobile("8(985)968-89-08")
-                .withEmail("m4shk4@gmail.com")
-        );
+        List<ContactData> before = app.getContactHelper().getContactList();
+        int index = before.size() - 1;
+        app.getContactHelper().editContactByIndex(index);
+        ContactData contact=new ContactData()
+                .withId(before.get(index).getId())
+                .withName("name")
+                .withLastname("lastname");
+        app.getContactHelper().fillContactForm(contact);
         app.getContactHelper().submitModification();
         app.getNavigationHelper().returnHome();
-        int after = app.getGroupHelper().getGroupCount();
-        Assert.assertEquals(after, before);
+        List<ContactData> after = app.getContactHelper().getContactList();
+        Assert.assertEquals(after.size(),before.size());
+        before.remove(index);
+        before.add(contact);
+        Assert.assertEquals(new HashSet(before),new HashSet(after));
     }
 }

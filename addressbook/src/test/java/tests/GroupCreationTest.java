@@ -9,11 +9,11 @@ import org.testng.annotations.Test;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
 public class GroupCreationTest extends TestBase {
-
 
 
     @DataProvider
@@ -50,14 +50,26 @@ public class GroupCreationTest extends TestBase {
     @Test
     public void testCreateGroupShortName() {
         app.getNavigationHelper().goToGroupsPage();
+        List<GroupData> before = app.getGroupHelper().getGroupList();
         app.getGroupHelper().initGroupCreation();
-        app.getGroupHelper().fillGroupForm(new GroupData()
-                .withName("n")
+        GroupData group = new GroupData().withName("n")
                 .withHeader("h")
-                .withFooter("f"));
+                .withFooter("f");
+        app.getGroupHelper().fillGroupForm(group);
         app.getGroupHelper().submit();
         app.getGroupHelper().returnToGroupsPage();
+        List<GroupData> after = app.getGroupHelper().getGroupList();
         System.out.println("testCreateGroupShortName passed");
+        Assert.assertEquals(after.size(), before.size() + 1);
+        int max = 0;
+        for (GroupData g : after) {
+            if (g.getId() > max) {
+                max = g.getId();
+            }
+        }
+        group.withId(max);
+        before.add(group);
+        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
     }
 
     @Test(priority = 3, enabled = true)

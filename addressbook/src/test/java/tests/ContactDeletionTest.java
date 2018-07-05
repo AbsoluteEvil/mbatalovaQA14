@@ -1,7 +1,10 @@
 package tests;
 
+import model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class ContactDeletionTest extends TestBase {
 
@@ -30,5 +33,22 @@ public class ContactDeletionTest extends TestBase {
         app.getGroupHelper().initDeletion();
         app.getGroupHelper().acceptAlert();
         Assert.assertEquals(app.getContactHelper().getContactCount(), 0);
+    }
+
+    @Test
+    public void contactDeletionByIndexTest() {
+        app.getNavigationHelper().returnHome();
+        if(!app.getContactHelper().isThereAContact()){
+            app.getContactHelper().createContact();
+        }
+        List<ContactData> before = app.getContactHelper().getContactList();
+        app.getContactHelper().selectContactByIndex(before.size() - 1);
+        app.getGroupHelper().initDeletion();
+        app.getGroupHelper().acceptAlert();
+        app.getNavigationHelper().returnHome();
+        List<ContactData> after = app.getContactHelper().getContactList();
+        Assert.assertEquals(after.size(), before.size() - 1);
+        before.remove(before.size() - 1);
+        Assert.assertEquals(before,after);
     }
 }

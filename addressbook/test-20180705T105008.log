@@ -1,0 +1,10 @@
+5192 [main] INFO  tests.GroupCreationTest - Start testCreateContact
+15406 [main] INFO  tests.GroupCreationTest - Stop testCreateContact
+15407 [main] INFO  tests.GroupCreationTest - Start testCreateContact
+20207 [main] INFO  tests.GroupCreationTest - Stop testCreateContact
+20208 [main] INFO  tests.GroupCreationTest - Start testCreateContact
+24901 [main] INFO  tests.GroupCreationTest - Stop testCreateContact
+24901 [main] INFO  tests.GroupCreationTest - Start testCreateContact
+29673 [main] INFO  tests.GroupCreationTest - Stop testCreateContact
+29674 [main] INFO  tests.GroupCreationTest - Start testCreateContact
+34416 [main] INFO  tests.GroupCreationTest - Stop testCreateContact

@@ -3,6 +3,7 @@ package tests;
 
 import model.ContactData;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -11,6 +12,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 
@@ -37,8 +39,8 @@ public class ContactCreationTest extends TestBase {
     public void testCreateContact(ContactData contacts) {
         app.getNavigationHelper().returnHome();
         int before = app.getContactHelper().getContactCount();
-       // File photo = new File("src/test/resources/cat.jpg");
-       // System.out.println(photo.exists());
+        // File photo = new File("src/test/resources/cat.jpg");
+        // System.out.println(photo.exists());
         app.getContactHelper().initContactCreation();
         app.getContactHelper().fillContactForm(new ContactData()
                 .withName(contacts.getName())
@@ -53,13 +55,26 @@ public class ContactCreationTest extends TestBase {
     }
 
     @Test
-    public void testCreateEmptyContact() {
+    public void testCreateContactShortName() {
         app.getNavigationHelper().returnHome();
-        int before = app.getContactHelper().getContactCount();
+        List<ContactData> before = app.getContactHelper().getContactList();
         app.getContactHelper().initContactCreation();
-        app.getContactHelper().fillContactForm(new ContactData());
+        ContactData contact = new ContactData()
+                .withName("n")
+                .withLastname("l")
+                .withGroup("newName");
+        app.getContactHelper().fillContactForm(contact);
         app.getGroupHelper().submit();
-        int after = app.getContactHelper().getContactCount();
-        Assert.assertEquals(after, before + 1);
+        List<ContactData> after = app.getContactHelper().getContactList();
+        Assert.assertEquals(after.size(), before.size() + 1);
+        int max = 0;
+        for (ContactData c : after) {
+            if (c.getId() > max) {
+                max = c.getId();
+            }
+        }
+        contact.withId(max);
+        before.add(contact);
+        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
     }
 }

@@ -1,8 +1,12 @@
 package model;
 
 import java.io.File;
+import java.util.Objects;
 
 public class ContactData {
+
+
+    private int id;
     private String name;
     private String lastname;
     private String group;
@@ -10,6 +14,12 @@ public class ContactData {
     private String mobile;
     private String email;
 
+
+
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
+    }
     public ContactData withName(String name) {
         this.name = name;
         return this;
@@ -38,8 +48,26 @@ public class ContactData {
     @Override
     public String toString() {
         return "ContactData{" +
-                "name='" + name + '\'' +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastname='" + lastname + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ContactData that = (ContactData) o;
+        return id == that.id &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(lastname, that.lastname);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(id, name, lastname);
     }
 
     public String getName() {
@@ -60,4 +88,5 @@ public class ContactData {
     public String getGroup() {
         return group;
     }
+    public int getId() { return id; }
 }

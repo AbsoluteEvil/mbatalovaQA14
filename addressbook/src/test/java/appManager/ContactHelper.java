@@ -1,10 +1,14 @@
 package appManager;
 
 import model.ContactData;
+import org.openqa.selenium.WebElement;
 import tests.TestBase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ContactHelper extends HelperBase {
 
@@ -13,12 +17,12 @@ public class ContactHelper extends HelperBase {
     }
 
     public void fillContactForm(ContactData contactData) {
-        if (isElementPresent(By.name("new_group"))&&
-                isElementPresent(By.xpath("//select[@name='new_group']/option[text()='"+contactData.getGroup()+"']"))) {
+        if (isElementPresent(By.name("new_group")) &&
+                isElementPresent(By.xpath("//select[@name='new_group']/option[text()='" + contactData.getGroup() + "']"))) {
             new Select(driver.findElement(By.name("new_group")))
                     .selectByVisibleText(contactData.getGroup());
-        } else if (isElementPresent(By.name("new_group"))){
-             TestBase.app.getGroupHelper().createGroupWithThisName(contactData.getGroup());
+        } else if (isElementPresent(By.name("new_group"))) {
+            TestBase.app.getGroupHelper().createGroupWithThisName(contactData.getGroup());
             TestBase.app.getNavigationHelper().returnHome();
             initContactCreation();
             new Select(driver.findElement(By.name("new_group")))
@@ -63,4 +67,26 @@ public class ContactHelper extends HelperBase {
     }
 
 
+    public List<ContactData> getContactList() {
+        List<ContactData> contacts = new ArrayList<>();
+        List<WebElement> elements = driver.findElements(By.xpath("//tr[@name='entry']"));
+        for (WebElement element : elements) {
+            String lastname = element.findElement(By.xpath("./td[2]")).getText();
+            String name = element.findElement(By.xpath("./td[3]")).getText();
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+            ContactData contact = new ContactData().withId(id).withName(name).withLastname(lastname);
+            contacts.add(contact);
+        }
+        return contacts;
+
+    }
+
+    public void selectContactByIndex(int index) {
+        driver.findElements(By.xpath("//*[@type='checkbox']")).get(index).click();
+    }
+
+    public void editContactByIndex(int index) {
+        index+=2;
+        click(By.xpath("//tr[" + index + "]/td[8]"));
+    }
 }
