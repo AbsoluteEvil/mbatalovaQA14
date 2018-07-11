@@ -62,7 +62,7 @@ public class ContactCreationTest extends TestBase {
         ContactData contact = new ContactData()
                 .withName("n")
                 .withLastname("l")
-                .withGroup("newName");
+                ;
         app.getContactHelper().fillContactForm(contact);
         app.getGroupHelper().submit();
         List<ContactData> after = app.getContactHelper().getContactList();

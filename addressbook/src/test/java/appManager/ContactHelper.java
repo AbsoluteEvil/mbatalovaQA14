@@ -17,6 +17,18 @@ public class ContactHelper extends HelperBase {
     }
 
     public void fillContactForm(ContactData contactData) {
+        if (contactData.getGroup() != null) {
+            groupCheckAndSelect(contactData);
+        }
+        type(By.name("firstname"), contactData.getName());
+        type(By.name("lastname"), contactData.getLastname());
+        type(By.name("mobile"), contactData.getMobile());
+        type(By.name("email"), contactData.getEmail());
+//        attach(By.name("photo"), contactData.getPhoto());
+
+    }
+
+    public void groupCheckAndSelect(ContactData contactData) {
         if (isElementPresent(By.name("new_group")) &&
                 isElementPresent(By.xpath("//select[@name='new_group']/option[text()='" + contactData.getGroup() + "']"))) {
             new Select(driver.findElement(By.name("new_group")))
@@ -28,12 +40,6 @@ public class ContactHelper extends HelperBase {
             new Select(driver.findElement(By.name("new_group")))
                     .selectByVisibleText(contactData.getGroup());
         }
-        type(By.name("firstname"), contactData.getName());
-        type(By.name("lastname"), contactData.getLastname());
-        type(By.name("mobile"), contactData.getMobile());
-        type(By.name("email"), contactData.getEmail());
-//        attach(By.name("photo"), contactData.getPhoto());
-
     }
 
     public void initContactCreation() {
@@ -86,7 +92,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void editContactByIndex(int index) {
-        index+=2;
+        index += 2;
         click(By.xpath("//tr[" + index + "]/td[8]"));
     }
 }

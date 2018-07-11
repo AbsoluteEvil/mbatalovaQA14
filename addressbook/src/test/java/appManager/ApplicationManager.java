@@ -1,8 +1,6 @@
 package appManager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
@@ -10,6 +8,9 @@ import org.openqa.selenium.remote.BrowserType;
 import org.openqa.selenium.support.events.AbstractWebDriverEventListener;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
@@ -36,7 +37,18 @@ public class ApplicationManager {
 
         @Override
         public void onException(Throwable throwable, WebDriver driver) {
-            System.out.println(throwable);
+
+            System.out.println("Error: "+ throwable);
+            File tmp = ((TakesScreenshot) driver)
+                    .getScreenshotAs(OutputType.FILE);
+            File screenshot = new File("screenshot"+ System.currentTimeMillis()+".png");
+            try {
+                com.google.common.io.Files.copy(tmp,screenshot);
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+            System.out.println(screenshot);
+
         }
     }
     public void start() {
